@@ -12,14 +12,15 @@ import pyarrow.csv as pv
 import pyarrow.parquet as pq
 
 PROJECT_ID = os.environ.get("GCP_PROJECT_ID")
-BUCKET = os.environ.get("GCP_GCS_BUCKET")
+# BUCKET = os.environ.get("GCP_GCS_BUCKET")
+BUCKET = "orag_temp_dev"
 
 dataset_file = "yellow_tripdata_2021-01.csv"
 # dataset_url = f"https://s3.amazonaws.com/nyc-tlc/trip+data/{dataset_file}"
-dataset_url = "https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2021-01.csv.gz"
+dataset_url = "https://storage.googleapis.com/orag_loyalty_new/yellow_tripdata_2021-01.csv"
 path_to_local_home = os.environ.get("AIRFLOW_HOME", "/opt/airflow/")
 parquet_file = dataset_file.replace('.csv', '.parquet')
-BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'trips_data_all')
+BIGQUERY_DATASET = os.environ.get("BIGQUERY_DATASET", 'A_test')
 
 
 def format_to_parquet(src_file):
@@ -108,4 +109,5 @@ with DAG(
         },
     )
 
+    # download_dataset_task
     download_dataset_task >> format_to_parquet_task >> local_to_gcs_task >> bigquery_external_table_task
