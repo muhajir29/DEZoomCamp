@@ -1,3 +1,0 @@
-apache-airflow-providers-google
-pyarrow
-apache-airflow-providers-dbt-cloud
