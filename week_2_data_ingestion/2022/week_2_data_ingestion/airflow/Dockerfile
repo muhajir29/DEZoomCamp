@@ -6,6 +6,8 @@ ENV AIRFLOW_HOME=/opt/airflow
 
 USER root
 RUN apt-get update -qq && apt-get install vim -qqq
+
+
 # git gcc g++ -qqq
 
 COPY requirements.txt .

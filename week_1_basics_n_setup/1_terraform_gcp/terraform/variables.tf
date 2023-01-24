@@ -4,13 +4,13 @@ locals {
 
 variable "project" {
   description = "Your GCP Project ID"
-  default = "ny-rides-alexey"
+  default = "playground-mars"
   type = string
 }
 
 variable "region" {
   description = "Region for GCP resources. Choose as per your location: https://cloud.google.com/about/locations"
-  default = "europe-west6"
+  default = "asia-southeast1-b"
   type = string
 }
 

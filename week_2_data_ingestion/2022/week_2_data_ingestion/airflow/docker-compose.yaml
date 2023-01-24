@@ -23,6 +23,13 @@ x-airflow-common:
     GCP_PROJECT_ID: 'playground-mars'
     GCP_GCS_BUCKET: "training-data-mars"
 
+    PG_HOST : 2_docker_sql_pgdatabase_1
+    PG_USER : root
+    PG_PASSWORD : root
+    PG_PORT : 5432
+    PG_DATABASE : ny_taxi
+
+
   volumes:
     - ./dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs

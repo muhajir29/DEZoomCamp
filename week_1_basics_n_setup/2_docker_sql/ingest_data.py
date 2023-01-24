@@ -29,6 +29,7 @@ def main(params):
     os.system(f"wget {url} -O {csv_name}")
 
     engine = create_engine(f'postgresql://{user}:{password}@{host}:{port}/{db}')
+    # engine = create_engine('postgresql://root:root@2_docker_sql_pgdatabase_1:5431/ny_taxi')
 
     df_iter = pd.read_csv(csv_name, iterator=True, chunksize=100000)
 
